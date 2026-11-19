@@ -19,6 +19,8 @@ void  read_flag(int *flags, char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
+int	arg_size(char *num);
+void	ft_splitadd(char **list, int argc, int ind, char *argv[]);
 
 #endif
 

@@ -3,7 +3,7 @@ NAME = pushswap.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = 	ft_strlen.c ft_strncmp.c read_args.c
+SRC = 	ft_strlen.c ft_strncmp.c read_args.c ft_splitadd.c arg_size.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
