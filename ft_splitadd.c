@@ -1,14 +1,16 @@
-int	size_num(char *argv, int *j)
+#include "push_swap.h"
+
+int	size_num(char *argv, int *k)
 {
 	int	size;
 
 	size = 0;
-	while((argv[*j] >= 9 && argv[*j] <= 13) || argv[*j] == 32)
-		(*j)++;
-	while(argv[*j] && ((argv[*j] >= 9 && argv[*j] <= 13) || argv[*j] == 32))
+	while((argv[*k] >= 9 && argv[*k] <= 13) || argv[*k] == 32)
+		(*k)++;
+	while(argv[*k] && !((argv[*k] >= 9 && argv[*k] <= 13) || argv[*k] == 32))
 	{
 		size++;
-		(*j)++;
+		(*k)++;
 	}
 	return (size);
 }
@@ -26,21 +28,26 @@ void	copy_word(char *new, char *argv, int size)
 void	ft_splitadd(char **list, int argc, int ind, char *argv[])
 {
 	int	i;
-	int	j;
+	//int	j;
+	int k;
 	int	size;
 
 	i = 0;
-	j = 0;
+	//j = 0;
+	k = 0;
 	while (ind < argc)
 	{
-		j = 0;
-		while (argv[j])
+		k = 0;
+		while (argv[0][k])
 		{
-			size = size_num(&argv[j], &j);
+			size = size_num(*argv, &k);
+			if (!size)
+				break;
 			list[i] = malloc((size + 1) * sizeof(char));
-			copy_word(list[i++], &argv[j], size);
+			copy_word(list[i++], &((*argv)[k]), size);
 		}
 		argv++;
 		ind++;
 	}
+	list[i] = NULL;
 }
